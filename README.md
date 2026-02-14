@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 Smart Bookmark App
 
-## Getting Started
+A simple bookmark manager built as part of a technical assessment.
 
-First, run the development server:
+------------------------------------------------------------------------
 
-```bash
+## 🚀 Live Demo
+
+🔗 **Live URL:**\
+[https://smart-bookmark-app-one-eta.vercel.app](https://smart-bookmark-app-one-eta.vercel.app/dashboard)
+
+------------------------------------------------------------------------
+
+# 📋 Project Requirements (Completed)
+
+### ✅ 1. Google Authentication (OAuth Only)
+
+-   Users can sign up and log in using **Google OAuth**
+-   No email/password authentication
+-   Implemented using Supabase Auth
+
+------------------------------------------------------------------------
+
+### ✅ 2. Add Bookmark
+
+-   Logged-in users can add a bookmark
+-   Each bookmark contains:
+    -   Title
+    -   URL
+
+------------------------------------------------------------------------
+
+### ✅ 3. Private Bookmarks (User Isolation)
+
+-   Bookmarks are private per user
+-   Implemented using:
+    -   `user_id` column
+    -   Supabase Row Level Security (RLS)
+-   A user cannot see another user's bookmarks
+
+------------------------------------------------------------------------
+
+### ✅ 4. Real-time Updates
+
+-   Bookmark list updates instantly:
+    -   When a bookmark is added
+    -   When a bookmark is deleted
+-   Implemented using:
+    -   Supabase Realtime
+    -   `postgres_changes` subscription
+-   Verified across multiple tabs
+
+------------------------------------------------------------------------
+
+### ✅ 5. Delete Bookmark
+
+-   Users can delete only their own bookmarks
+-   UI updates in real-time without refresh
+
+------------------------------------------------------------------------
+
+### ✅ 6. Deployment
+
+-   Deployed on **Vercel**
+-   Production OAuth redirect configured properly
+
+------------------------------------------------------------------------
+
+# 🛠 Tech Stack
+
+-   **Next.js (App Router)**
+-   **Supabase**
+    -   Authentication (Google OAuth)
+    -   PostgreSQL Database
+    -   Realtime subscriptions
+-   **Tailwind CSS**
+-   **lucide-react (icons)**
+
+------------------------------------------------------------------------
+
+# 🔐 Row Level Security (RLS)
+
+Enabled on `bookmarks` table.
+
+Policies:
+
+-   Users can SELECT their own bookmarks
+-   Users can INSERT their own bookmarks
+-   Users can DELETE their own bookmarks
+
+This ensures full user data isolation.
+
+------------------------------------------------------------------------
+
+# ⚙️ How to Run Locally
+
+``` bash
+git clone <repo-url>
+cd smart-bookmark
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create a `.env` file:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+------------------------------------------------------------------------
 
-## Learn More
+# 🎯 Final Notes
 
-To learn more about Next.js, take a look at the following resources:
+-   The application strictly follows the given requirements.
+-   No additional features were added.
+-   Fully functional with:
+    -   Authentication
+    -   Private data
+    -   Realtime updates
+    -   Production deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+------------------------------------------------------------------------
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Created By
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Rohit Kumar**
