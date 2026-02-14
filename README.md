@@ -108,6 +108,47 @@ Create a `.env` file:
 
 ------------------------------------------------------------------------
 
+# 🧠 Challenges Faced & Solutions
+
+### 1. OAuth Redirect Handling
+
+Problem:\
+Google OAuth requires proper redirect handling between: - Supabase -
+Next.js - Vercel production URL
+
+Solution:\
+- Implemented `/auth/callback` route - Exchanged OAuth code using
+`supabase.auth.exchangeCodeForSession` - Configured correct redirect
+URLs in Supabase dashboard
+
+------------------------------------------------------------------------
+
+### 2. Real-time Delete Inconsistency
+
+Problem:\
+Realtime delete updates were sometimes inconsistent.
+
+Solution:\
+Solution:
+- Enabled `bookmarks` table in the `supabase_realtime` publication
+- Refetched bookmarks on every realtime change event
+- Verified Row Level Security (RLS) policies for correct visibility
+- Restarted development server after enabling replication
+
+------------------------------------------------------------------------
+
+### 3. Production Deployment
+
+Problem:\
+Localhost URLs do not work in production OAuth flow.
+
+Solution:\
+- Added Vercel URL in Supabase: - Site URL - Redirect URLs - Updated
+OAuth `redirectTo` dynamically using `window.location.origin`
+
+
+------------------------------------------------------------------------
+
 # 🎯 Final Notes
 
 -   The application strictly follows the given requirements.
