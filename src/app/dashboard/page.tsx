@@ -96,10 +96,9 @@ function DashboardContent() {
           event: "*",
           schema: "public",
           table: "bookmarks",
-          filter: `user_id=eq.${user.id}`,
         },
         () => {
-          fetchBookmarks();
+          fetchBookmarks(); // always refetch on any change
         },
       )
       .subscribe();
